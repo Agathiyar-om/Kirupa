@@ -391,11 +391,11 @@ const APPS=[
   {id:6,  name:'BALCONY LIGHT',   icon:'🪟'},
   {id:7,  name:'CEILING FAN 1',   icon:'🌀'},
   {id:8,  name:'CEILING FAN 2',   icon:'🌀'},
-  {id:9,  name:'TV / SET-TOP',    icon:'📺'},
-  {id:10, name:'WATER HEATER',    icon:'🔥'},
+  {id:9,  name:'WATER HEATER 1',  icon:'🔥'},
+  {id:10, name:'WATER HEATER 2',  icon:'🔥'},
   {id:11, name:'WATER PUMP',      icon:'🚰'},
   {id:12, name:'GARAGE DOOR',     icon:'🚪'},
-  {id:13, name:'WASHING MACHINE', icon:'🧺'},
+  {id:13, name:'AIR COOLER 1',    icon:'🌀'},
   {id:14, name:'GARDEN SPRINKLER',icon:'🌿'},
 ];
 const DAY_OPTS=[
