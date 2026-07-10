@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Smart Home Dashboard</title>
@@ -80,10 +82,10 @@ body{
   padding:6px 16px 6px;max-width:900px;margin:0 auto;width:100%;
 }
 .feature-row{
-  display:grid;grid-template-columns:1fr;gap:14px;
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
   padding:14px 16px 0;max-width:900px;margin:0 auto;width:100%;
 }
-@media(max-width:640px){.grid{grid-template-columns:repeat(2,1fr);gap:10px;padding:6px 12px;}.feature-row{padding:12px 12px 0;gap:10px;}}
+@media(max-width:640px){.grid{grid-template-columns:repeat(2,1fr);gap:10px;padding:6px 12px;}.feature-row{grid-template-columns:1fr 1fr;padding:12px 12px 0;gap:10px;}}
 
 .pagination{display:flex;align-items:center;justify-content:center;gap:16px;padding:8px 16px 30px;}
 .page-btn{background:var(--card);border:none;border-radius:20px;padding:8px 14px;display:flex;align-items:center;gap:6px;color:var(--accent);cursor:pointer;box-shadow:0 3px 10px var(--card-shadow);font-size:12px;font-weight:800;letter-spacing:.3px;transition:opacity .2s,transform .12s;flex-shrink:0;}
@@ -116,7 +118,7 @@ body{
 .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px var(--card-shadow);}
 .card:active{transform:scale(.97);}
 .card-top{display:flex;align-items:flex-start;justify-content:space-between;}
-.card-name{font-size:15px;font-weight:800;color:var(--text);letter-spacing:.2px;line-height:1.25;max-width:70%;}
+.card-name{font-size:12px;font-weight:800;color:var(--text);letter-spacing:.2px;line-height:1.25;max-width:70%;}
 .card-icon{width:26px;height:26px;flex-shrink:0;color:#c3cbd6;transition:color .3s;transform-origin:50% 50%;}
 .card-icon svg{width:100%;height:100%;}
 .card-icon.on-generic{color:var(--accent);}
@@ -422,6 +424,21 @@ function buildFeatureCards(){
     <div class="today-date" id="todayDate">--</div>
     <div class="today-cond"><span class="wicon" id="wIcon">⛅</span><span id="wCond">Loading…</span></div>`;
   f.appendChild(today);
+
+  const tank=document.createElement('div');
+  tank.className='feature-card';
+  tank.innerHTML=`
+    <div class="feat-title">Water tank level</div>
+    <div class="tank-gauge-wrap">
+      <svg viewBox="0 0 140 78" width="140" height="78">
+        <path d="M10 74 A60 60 0 0 1 130 74" fill="none" stroke="#e5eaf1" stroke-width="14" stroke-linecap="round"/>
+        <path id="tankArc" d="M10 74 A60 60 0 0 1 130 74" fill="none" stroke="var(--accent)" stroke-width="14" stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="188.5"/>
+      </svg>
+      <div class="tank-pct" id="tankPct">0%</div>
+      <div class="tank-labels"><span>Low</span><span>Full</span></div>
+    </div>`;
+  f.appendChild(tank);
+  updateTankGauge();
 }
 
 function renderDevicePage(){
