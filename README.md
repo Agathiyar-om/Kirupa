@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<Resort>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -142,18 +142,6 @@ body{
 .logout-btn{background:var(--off-bg);border:1.5px solid rgba(192,57,43,0.3);border-radius:7px;padding:5px 10px;color:var(--off);cursor:pointer;font-size:11px;font-family:'Nunito',sans-serif;font-weight:700;letter-spacing:1px;transition:all .2s;}
 .logout-btn:hover{background:rgba(192,57,43,0.22);border-color:var(--off)}
 
-.ctrl{display:flex;gap:8px;padding:7px 12px;background:var(--surface2);border-bottom:1px solid var(--border);flex-shrink:0;}
-.ctrl-btn{
-  display:flex;align-items:center;justify-content:center;gap:5px;padding:8px 22px;border-radius:9px;border:1.5px solid;
-  font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;cursor:pointer;
-  transition:all .2s;box-shadow:0 1px 4px var(--shadow);margin:0 auto;
-}
-.ctrl-on{background:var(--on-bg);border-color:rgba(76,175,107,0.4);color:var(--on);}
-.ctrl-on:hover{background:rgba(76,175,107,0.22);box-shadow:0 3px 12px var(--on-glow);}
-.ctrl-off{background:var(--off-bg);border-color:rgba(192,57,43,0.35);color:var(--off);}
-.ctrl-off:hover{background:rgba(192,57,43,0.22);box-shadow:0 3px 12px var(--off-glow);}
-.ctrl-sch{background:var(--gold-dim);border-color:var(--border);color:var(--gold2);}
-.ctrl-sch:hover{background:rgba(232,163,61,0.20);border-color:var(--gold2);}
 
 /* ── 2×2 paginated "window" grid, 4 devices per page ── */
 .grid{
@@ -161,11 +149,10 @@ body{
   gap:6px;padding:7px 7px 0;min-height:0;background:var(--bg);
 }
 
-/* ── pagination bar ── */
+/* ── pagination bar (with schedules icon at bottom level) ── */
 .pager{
-  display:flex;align-items:center;justify-content:center;gap:14px;
-  padding:9px 12px calc(env(safe-area-inset-bottom,0) + 9px);flex-shrink:0;
-  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:9px 12px 4px;flex-shrink:0;background:var(--bg);
 }
 .pg-btn{
   display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:9px;
@@ -175,7 +162,13 @@ body{
 }
 .pg-btn:hover:not(:disabled){background:var(--gold-dim);border-color:var(--gold2);}
 .pg-btn:disabled{opacity:.35;cursor:not-allowed;}
-.pg-dots{display:flex;gap:6px;align-items:center;}
+.pg-sch{
+  display:flex;align-items:center;justify-content:center;width:38px;height:38px;flex-shrink:0;
+  border-radius:50%;border:1.5px solid var(--gold2);background:var(--gold-dim);color:var(--gold);
+  font-size:16px;cursor:pointer;transition:all .2s;box-shadow:0 1px 4px var(--shadow);
+}
+.pg-sch:hover{background:rgba(184,114,15,0.20);box-shadow:0 3px 12px var(--gold-glow);transform:translateY(-1px);}
+.pg-dots{display:flex;gap:6px;align-items:center;justify-content:center;padding-bottom:calc(env(safe-area-inset-bottom,0) + 9px);}
 .pg-dot{width:7px;height:7px;border-radius:50%;background:var(--border-h);transition:all .25s;}
 .pg-dot.active{background:var(--gold2);box-shadow:0 0 6px var(--gold-glow);width:18px;border-radius:4px;}
 
@@ -320,7 +313,6 @@ input[type=time]::-webkit-calendar-picker-indicator{opacity:.6;cursor:pointer;fi
     <img class="hdr-logo" id="hdrLogo" src="" alt="">
     <div class="hdr-text">
       <div class="hdr-title">THE HOME PANEL</div>
-      <div class="hdr-sub">Room by Room</div>
     </div>
     <div class="hdr-chips">
       <div class="chip">
@@ -347,16 +339,13 @@ input[type=time]::-webkit-calendar-picker-indicator{opacity:.6;cursor:pointer;fi
     </div>
   </div>
 
-  <div class="ctrl">
-    <button class="ctrl-btn ctrl-sch" onclick="openSchedules()">⏰ SCHEDULES</button>
-  </div>
-
   <div class="grid" id="appGrid"></div>
   <div class="pager">
     <button class="pg-btn" id="prevBtn" onclick="prevPage()">◀ PREV</button>
-    <div class="pg-dots" id="pgDots"></div>
+    <button class="pg-sch" onclick="openSchedules()" title="Schedules">⏰</button>
     <button class="pg-btn" id="nextBtn" onclick="nextPage()">NEXT ▶</button>
   </div>
+  <div class="pg-dots" id="pgDots"></div>
 </div>
 
 <!-- ══ SCHEDULE PANEL ══ -->
