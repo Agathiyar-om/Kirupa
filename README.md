@@ -1,6 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
+<head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=0.5,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>THE HOME PANEL</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
@@ -45,9 +48,8 @@ body{
   background-size:cover,24px 24px;
 }
 
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--bg2)}
-::-webkit-scrollbar-thumb{background:var(--gold2);border-radius:3px}
+::-webkit-scrollbar{width:0;height:0;display:none}
+*{scrollbar-width:none;-ms-overflow-style:none;}
 
 /* ══ LOGIN PAGE ══ */
 #loginPage{
@@ -309,7 +311,7 @@ input[type=time]::-webkit-calendar-picker-indicator{opacity:.6;cursor:pointer;fi
   <div class="hdr">
     <img class="hdr-logo" id="hdrLogo" src="" alt="">
     <div class="hdr-text">
-      <div class="hdr-title">THE HOME PANEL</div>
+      <div class="hdr-title">HOME AUTOMATION PANEL</div>
     </div>
     <div class="hdr-chips">
       <div class="chip">
