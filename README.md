@@ -193,10 +193,10 @@ body{
 
 .card-icon{font-size:14px;line-height:1;flex-shrink:0;}
 .card-name{
-  font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;color:var(--text);letter-spacing:.4px;
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;color:var(--text);letter-spacing:.4px;
   text-transform:uppercase;text-align:center;line-height:1.15;word-break:break-word;
 }
-.card-num{position:absolute;top:4px;right:5px;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--text2);border:1px solid var(--border);border-radius:3px;padding:1px 4px;background:var(--surface2);}
+.card-num{position:absolute;top:4px;right:5px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text2);border:1px solid var(--border);border-radius:3px;padding:1px 4px;background:var(--surface2);}
 
 .card-status{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;}
 .orb{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .4s;border:2px solid transparent;}
@@ -205,11 +205,11 @@ body{
 .orb-dot{width:10px;height:10px;border-radius:50%;transition:all .4s;}
 .on .orb-dot{background:var(--on);box-shadow:0 0 7px var(--on);}
 .off .orb-dot{background:var(--off);}
-.state-lbl{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:1.5px;transition:color .3s;}
+.state-lbl{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1.5px;transition:color .3s;}
 .state-lbl.on{color:var(--on)}.state-lbl.off{color:var(--off)}
 
 .tog{
-  width:100%;padding:5px 4px;border-radius:7px;border:1.5px solid;font-family:'Nunito',sans-serif;font-size:10px;
+  width:100%;padding:5px 4px;border-radius:7px;border:1.5px solid;font-family:'Nunito',sans-serif;font-size:12px;
   font-weight:800;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;transition:all .2s;flex-shrink:0;box-shadow:0 1px 3px var(--shadow);
 }
 .tog.off{background:var(--on-bg);border-color:rgba(76,175,107,0.4);color:var(--on);}
