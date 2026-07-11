@@ -1,6 +1,5 @@
-<!DOCTYPE html>
+<OM>
 <html lang="en">
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Smart Home Dashboard</title>
@@ -106,9 +105,9 @@ body{
 .today-stat b{display:block;font-size:16px;font-weight:800;color:var(--text);}
 .today-stat span{font-size:10px;color:var(--text2);font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
 
-.tank-gauge-wrap{display:flex;flex-direction:column;align-items:center;}
-.tank-pct{font-size:20px;font-weight:800;color:var(--text);margin-top:-38px;}
-.tank-labels{display:flex;justify-content:space-between;width:100%;font-size:10px;font-weight:800;color:var(--text2);letter-spacing:.5px;text-transform:uppercase;margin-top:2px;}
+.tank-gauge-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;}
+.tank-pct{font-size:20px;font-weight:800;color:var(--text);margin-top:0;}
+.tank-labels{display:flex;justify-content:space-between;width:100%;font-size:10px;font-weight:800;color:var(--text2);letter-spacing:.5px;text-transform:uppercase;margin-top:8px;}
 
 /* Device cards */
 .card{
@@ -430,10 +429,6 @@ function buildFeatureCards(){
   tank.innerHTML=`
     <div class="feat-title">Water tank level</div>
     <div class="tank-gauge-wrap">
-      <svg viewBox="0 0 140 78" width="140" height="78">
-        <path d="M10 74 A60 60 0 0 1 130 74" fill="none" stroke="#e5eaf1" stroke-width="14" stroke-linecap="round"/>
-        <path id="tankArc" d="M10 74 A60 60 0 0 1 130 74" fill="none" stroke="var(--accent)" stroke-width="14" stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="188.5"/>
-      </svg>
       <div class="tank-pct" id="tankPct">0%</div>
       <div class="tank-labels"><span>Low</span><span>Full</span></div>
     </div>`;
@@ -543,11 +538,9 @@ function updateConnCount(){
 function setAllDevicesOffline(){deviceOnline=Array(APPS.length).fill(false);deviceOnline.forEach((_,i)=>updateConnDot(i));updateConnCount();}
 
 function updateTankGauge(){
-  const arc=document.getElementById('tankArc');if(!arc)return;
   const pct=Math.max(0,Math.min(100,tankLevel));
-  const len=188.5;
-  arc.style.strokeDashoffset=len-(len*pct/100);
-  document.getElementById('tankPct').textContent=pct+'%';
+  const el=document.getElementById('tankPct');if(!el)return;
+  el.textContent=pct+'%';
 }
 
 /* ── RELAY ── */
